@@ -1,5 +1,15 @@
 #!/usr/bin/env node
+const path = require("path");
 const program = require("commander");
-
-require = require('esm')(module /*, options */);
+const Printer = require("@darkobits/lolcatjs");
+const inquirer = require("inquirer");
+const shelljs = require("shelljs");
+const chalk = require("chalk");
+const userHome = require("user-home");
+const ora = require("ora");
+require = require("esm")(module /*, options */);
+const input =
+  "coolb-cli v" + require(path.resolve(__dirname, "..", "package.json")).version;
+program.version(Printer.default.fromString(input));
+program.parse(process.argv);
 require("../src/cli").cli(process.argv);

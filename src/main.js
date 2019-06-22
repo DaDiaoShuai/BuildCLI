@@ -6,14 +6,19 @@ import { promisify } from "util";
 import execa from "execa";
 import Listr from "listr";
 import { projectInstall } from "pkg-install";
+import shelljs from "shelljs";
 
 const access = promisify(fs.access);
 const copy = promisify(ncp);
 
 async function copyTemplateFiles(options) {
-  return copy(options.templateDirectory, options.targetDirectory, {
-    clobber: false
-  });
+  // return copy(options.templateDirectory, options.targetDirectory, {
+  //   clobber: false
+  // });
+  // TODO: 根据模板选项下载仓库
+  shelljs.exec(
+    "git clone https://github.com/DaDiaoShuai/BuildCLI.git"
+  );
 }
 
 async function initGit(options) {

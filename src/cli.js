@@ -26,7 +26,7 @@ function parseArgmentsIntoOptions(params) {
 }
 
 async function promptForMissingOptions(options) {
-  const defaultTemplate = "JavaScript";
+  const defaultTemplate = "SPA";
   if (options.skipPrompts) {
     return {
       ...options,
