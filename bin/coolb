@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+const program = require("commander");
+
+require = require('esm')(module /*, options */);
+require("../src/cli").cli(process.argv);
